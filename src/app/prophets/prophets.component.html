@@ -1,0 +1,19 @@
+<h2>Prophets of Allah</h2>
+<ul class="prophets">
+  <li *ngFor="let prophet of prophets"
+    [class.selected]="prophet === selectedProphet"
+    (click)="onSelect(prophet)">
+    <span class="badge">{{prophet.id}}</span>{{prophet.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedProphet">
+
+  <h2>{{selectedProphet.name | uppercase}} Details</h2>
+  <div><span>id:</span>{{selectedProphet.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedProphet.name" placeholder="name">
+    </label>
+  </div>
+</div>
